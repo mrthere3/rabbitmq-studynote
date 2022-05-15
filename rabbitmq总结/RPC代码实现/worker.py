@@ -32,7 +32,7 @@ class FibonacciRpcClient(object):
             exchange='',
             routing_key='rpc_queue',
             properties=pika.BasicProperties(
-                reply_to=self.callback_queue,
+                reply_to=self.callback_queue,#从rpc_queue拿去结果 之后发送到self.callback_queuq 消费
                 correlation_id=self.corr_id,
             ),
             body=str(n))
